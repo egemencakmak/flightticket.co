@@ -52,14 +52,25 @@ function HomePage() {
       {/* Hero Section */}
       <Hero />
 
-      {/* Travelpayouts Widget Section */}
+      {/* Travelpayouts Metasearch Widget Section */}
       <section className="relative z-10 -mt-16">
         <div className="container mx-auto px-4 max-w-6xl">
-          {/* Travelpayouts Widget Container - Must be empty for widget to render */}
+          {/* Travelpayouts Search Widget Container */}
           <div
-            id="tp-widget-container"
+            id="tpwl-search"
             className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6"
-            style={{ minHeight: '500px' }}
+            style={{ minHeight: '400px' }}
+          />
+        </div>
+      </section>
+
+      {/* Travelpayouts Search Results Section */}
+      <section className="py-4">
+        <div className="container mx-auto px-4 max-w-6xl">
+          {/* Travelpayouts Tickets/Results Container */}
+          <div
+            id="tpwl-tickets"
+            style={{ minHeight: '600px' }}
           />
         </div>
       </section>

@@ -105,18 +105,24 @@ Kodunuzda widget ID'nin doğru olduğundan emin olun:
    - ❌ `403 Forbidden` → Domain izni yok
    - ❌ `404 Not Found` → Widget ID yanlış
 
-### 3. Widget Container'ı Kontrol Edin
+### 3. Widget Container'larını Kontrol Edin
 
-HTML'de şu container olmalı:
+HTML'de **2 ayrı container** olmalı:
 
 ```html
-<div id="tp-widget-container" style="min-height: 500px;"></div>
+<!-- Arama formu için -->
+<div id="tpwl-search" style="min-height: 400px;"></div>
+
+<!-- Sonuçlar için -->
+<div id="tpwl-tickets" style="min-height: 600px;"></div>
 ```
 
 **Önemli:**
-- ID: `tp-widget-container` olmalı
-- Container **boş** olmalı (içinde başka element yok)
+- ID: `tpwl-search` (arama widget'ı için) - ZORUNLU
+- ID: `tpwl-tickets` (sonuç widget'ı için) - ZORUNLU
+- Her iki container da **boş** olmalı (içinde başka element yok)
 - Min-height belirtilmeli
+- İki container da **aynı sayfada** olmalı
 
 ### 4. Script Yükleme Sırasını Kontrol Edin
 
@@ -134,8 +140,11 @@ HTML'de şu container olmalı:
 </head>
 
 <body>
-    <!-- Container -->
-    <div id="tp-widget-container"></div>
+    <!-- Search Widget Container -->
+    <div id="tpwl-search"></div>
+
+    <!-- Results Widget Container -->
+    <div id="tpwl-tickets"></div>
 </body>
 ```
 
@@ -173,7 +182,9 @@ Widget doğru çalışıyorsa:
 - [ ] Console'da hata kontrol edildi
 - [ ] Network tab'ında 200 OK görünüyor
 - [ ] Widget ID doğru (713)
-- [ ] Container boş (`<div id="tp-widget-container"></div>`)
+- [ ] İki container mevcut ve boş:
+  - [ ] `<div id="tpwl-search"></div>` (arama formu)
+  - [ ] `<div id="tpwl-tickets"></div>` (sonuçlar)
 
 ---
 

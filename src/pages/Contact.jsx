@@ -48,7 +48,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Email</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400">support@flighticket.co</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">support@flightticket.co</p>
               </div>
             </div>
 
@@ -185,7 +185,7 @@ export default function ContactPage() {
                   </svg>
                 </summary>
                 <p className="mt-3 text-gray-700 dark:text-gray-300 text-sm">
-                  After searching for flights on Flighticket.co, you'll see results from our partner booking platforms.
+                  After searching for flights on Flightticket.co, you'll see results from our partner booking platforms.
                   Click on any flight to be redirected to the booking site where you can complete your purchase securely.
                 </p>
               </details>

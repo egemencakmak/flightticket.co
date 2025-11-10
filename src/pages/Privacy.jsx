@@ -18,7 +18,7 @@ export default function PrivacyPage() {
                 1. Introduction
               </h2>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                Welcome to Flighticket.co ("we," "our," or "us"). We are committed to protecting your personal
+                Welcome to Flightticket.co ("we," "our," or "us"). We are committed to protecting your personal
                 information and your right to privacy. This Privacy Policy explains how we collect, use, disclose,
                 and safeguard your information when you visit our website.
               </p>
@@ -141,7 +141,7 @@ export default function PrivacyPage() {
                 If you have any questions about this Privacy Policy, please contact us:
               </p>
               <ul className="list-none text-gray-700 dark:text-gray-300 space-y-2">
-                <li>Email: privacy@flighticket.co</li>
+                <li>Email: privacy@flightticket.co</li>
                 <li>Website: <a href="/contact" className="text-primary-600 dark:text-primary-400 hover:underline">Contact Form</a></li>
               </ul>
             </section>

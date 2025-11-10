@@ -25,7 +25,7 @@ export default function Footer() {
                   d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
                 />
               </svg>
-              <span className="text-xl font-bold text-white">Flighticket</span>
+              <span className="text-xl font-bold text-white">Flightticket</span>
             </div>
             <p className="text-gray-400 text-sm">
               Find and compare flights from hundreds of airlines and travel agencies.
@@ -114,7 +114,7 @@ export default function Footer() {
           {/* Affiliate Disclosure */}
           <div className="bg-gray-800 rounded-lg p-4 mb-6">
             <p className="text-sm text-gray-400">
-              <strong className="text-white">Affiliate Disclosure:</strong> Flighticket.co is an affiliate marketing platform.
+              <strong className="text-white">Affiliate Disclosure:</strong> Flightticket.co is an affiliate marketing platform.
               We may earn a commission when you book flights through our links, at no extra cost to you.
               This helps us keep our service free and maintain this website.
             </p>
@@ -122,7 +122,7 @@ export default function Footer() {
 
           {/* Copyright */}
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-            <p>© {currentYear} Flighticket.co. All rights reserved.</p>
+            <p>© {currentYear} Flightticket.co. All rights reserved.</p>
             <p className="mt-2 md:mt-0">
               Made with{' '}
               <span className="text-red-500">♥</span>

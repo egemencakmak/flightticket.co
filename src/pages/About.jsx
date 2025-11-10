@@ -6,7 +6,7 @@ export default function AboutPage() {
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 md:p-12">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
-            About Flighticket
+            About Flightticket
           </h1>
 
           <div className="prose prose-lg dark:prose-invert max-w-none">
@@ -15,7 +15,7 @@ export default function AboutPage() {
                 Our Mission
               </h2>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                At Flighticket.co, our mission is simple: to help travelers find the best flight deals quickly
+                At Flightticket.co, our mission is simple: to help travelers find the best flight deals quickly
                 and easily. We believe that everyone deserves access to affordable travel, and we're committed
                 to making flight search as transparent and user-friendly as possible.
               </p>
@@ -26,7 +26,7 @@ export default function AboutPage() {
                 What We Do
               </h2>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                Flighticket is a flight comparison platform that searches hundreds of airlines and travel agencies
+                Flightticket is a flight comparison platform that searches hundreds of airlines and travel agencies
                 to find you the best prices. We don't sell flights ourselves – instead, we partner with trusted
                 booking platforms to bring you:
               </p>
@@ -56,7 +56,7 @@ export default function AboutPage() {
 
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                Why Choose Flighticket?
+                Why Choose Flightticket?
               </h2>
               <div className="grid md:grid-cols-2 gap-6 mb-4">
                 <div className="bg-primary-50 dark:bg-gray-700 rounded-lg p-6">

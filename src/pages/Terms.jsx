@@ -18,7 +18,7 @@ export default function TermsPage() {
                 1. Agreement to Terms
               </h2>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                By accessing or using Flighticket.co, you agree to be bound by these Terms of Service and all
+                By accessing or using Flightticket.co, you agree to be bound by these Terms of Service and all
                 applicable laws and regulations. If you do not agree with any of these terms, you are prohibited
                 from using this website.
               </p>
@@ -29,7 +29,7 @@ export default function TermsPage() {
                 2. Description of Service
               </h2>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                Flighticket.co is a flight search and comparison platform that operates as an affiliate marketing
+                Flightticket.co is a flight search and comparison platform that operates as an affiliate marketing
                 service. We provide:
               </p>
               <ul className="list-disc pl-6 text-gray-700 dark:text-gray-300 space-y-2 mb-4">
@@ -48,7 +48,7 @@ export default function TermsPage() {
                 3. Affiliate Disclosure
               </h2>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                Flighticket.co participates in affiliate marketing programs. When you click on links to book
+                Flightticket.co participates in affiliate marketing programs. When you click on links to book
                 flights through our website, we may earn a commission from our partners at no additional cost
                 to you. This does not affect the price you pay or the quality of service you receive.
               </p>
@@ -66,7 +66,7 @@ export default function TermsPage() {
                 <li>Use the service for lawful purposes only</li>
                 <li>Not attempt to interfere with the proper working of the website</li>
                 <li>Not use automated systems to access the service</li>
-                <li>Respect the intellectual property rights of Flighticket.co and third parties</li>
+                <li>Respect the intellectual property rights of Flightticket.co and third parties</li>
               </ul>
             </section>
 
@@ -105,7 +105,7 @@ export default function TermsPage() {
                 7. Limitation of Liability
               </h2>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                To the fullest extent permitted by law, Flighticket.co shall not be liable for any indirect,
+                To the fullest extent permitted by law, Flightticket.co shall not be liable for any indirect,
                 incidental, special, consequential, or punitive damages, or any loss of profits or revenues,
                 whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses.
               </p>
@@ -116,8 +116,8 @@ export default function TermsPage() {
                 8. Intellectual Property
               </h2>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                All content on Flighticket.co, including but not limited to text, graphics, logos, icons, images,
-                and software, is the property of Flighticket.co or its content suppliers and is protected by
+                All content on Flightticket.co, including but not limited to text, graphics, logos, icons, images,
+                and software, is the property of Flightticket.co or its content suppliers and is protected by
                 international copyright laws.
               </p>
             </section>
@@ -151,7 +151,7 @@ export default function TermsPage() {
                 If you have any questions about these Terms of Service, please contact us:
               </p>
               <ul className="list-none text-gray-700 dark:text-gray-300 space-y-2">
-                <li>Email: legal@flighticket.co</li>
+                <li>Email: legal@flightticket.co</li>
                 <li>Website: <a href="/contact" className="text-primary-600 dark:text-primary-400 hover:underline">Contact Form</a></li>
               </ul>
             </section>

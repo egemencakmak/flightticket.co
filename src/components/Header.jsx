@@ -22,7 +22,7 @@ export default function Header({ darkMode, setDarkMode }) {
               />
             </svg>
             <span className="text-xl font-bold text-gray-900 dark:text-white">
-              Flighticket
+              Flightticket
             </span>
           </Link>
 

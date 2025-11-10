@@ -1,6 +1,6 @@
 # Vanilla HTML/CSS/JS Version
 
-This is a pure HTML/CSS/JavaScript version of Flighticket.co with **no build step required**.
+This is a pure HTML/CSS/JavaScript version of Flightticket.co with **no build step required**.
 
 ## ✨ Features
 

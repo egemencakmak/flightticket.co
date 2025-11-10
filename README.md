@@ -1,4 +1,4 @@
-# Flighticket.co - Flight Search & Affiliate Platform
+# Flightticket.co - Flight Search & Affiliate Platform
 
 Modern, fast, and SEO-friendly flight search and booking affiliate website built with Travelpayouts integration.
 
@@ -54,8 +54,8 @@ Copy `.env.example` to `.env` and update:
 ```env
 VITE_TP_MARKER=YOUR_MARKER_ID
 VITE_TP_SUBID=optional_subid
-VITE_SITE_URL=https://flighticket.co
-VITE_SITE_NAME=Flighticket
+VITE_SITE_URL=https://flightticket.co
+VITE_SITE_NAME=Flightticket
 ```
 
 **Important**: Replace `YOUR_MARKER_ID` with your actual Travelpayouts marker from your dashboard.
@@ -141,7 +141,7 @@ Works with:
 ## 📁 Project Structure
 
 ```
-flighticket.co/
+flightticket.co/
 ├── src/                      # React source files
 │   ├── components/           # React components
 │   │   ├── SearchBar.jsx

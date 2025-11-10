@@ -1,4 +1,4 @@
-# Deployment Guide - Flighticket.co
+# Deployment Guide - Flightticket.co
 
 Complete step-by-step deployment instructions for all major hosting platforms.
 
@@ -22,7 +22,7 @@ Complete step-by-step deployment instructions for all major hosting platforms.
 npm install -g vercel
 
 # 2. Navigate to project directory
-cd /path/to/flighticket.co
+cd /path/to/flightticket.co
 
 # 3. Login to Vercel
 vercel login
@@ -70,13 +70,13 @@ vercel --prod
      ```
      VITE_TP_MARKER=YOUR_MARKER_ID
      VITE_TP_SUBID=optional
-     VITE_SITE_URL=https://flighticket.co
-     VITE_SITE_NAME=Flighticket
+     VITE_SITE_URL=https://flightticket.co
+     VITE_SITE_NAME=Flightticket
      ```
 
 4. **Custom Domain**
    - Go to Project Settings → Domains
-   - Add your domain: `flighticket.co`
+   - Add your domain: `flightticket.co`
    - Configure DNS as instructed
 
 ---
@@ -334,7 +334,7 @@ Nginx config:
 ```nginx
 server {
     listen 80;
-    server_name flighticket.co www.flighticket.co;
+    server_name flightticket.co www.flightticket.co;
     root /var/www/flighticket;
     index index.html;
 
@@ -366,7 +366,7 @@ sudo systemctl restart nginx
 
 ```bash
 sudo apt install certbot python3-certbot-nginx
-sudo certbot --nginx -d flighticket.co -d www.flighticket.co
+sudo certbot --nginx -d flightticket.co -d www.flightticket.co
 ```
 
 ---

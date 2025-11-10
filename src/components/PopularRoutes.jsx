@@ -36,25 +36,25 @@ export default function PopularRoutes({ onRouteClick }) {
 
   return (
     <div>
-      <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+      <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-4 text-center tracking-tight">
         Popular Routes
       </h2>
-      <p className="text-gray-600 dark:text-gray-400 text-center mb-8 max-w-2xl mx-auto">
+      <p className="text-gray-600 dark:text-gray-400 text-center mb-10 max-w-2xl mx-auto text-lg">
         Quick search for the most popular destinations. Click on any route to search for flights.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {POPULAR_ROUTES.map((route, index) => (
           <button
             key={index}
             onClick={() => handleRouteClick(route)}
-            className="group bg-gradient-to-br from-primary-50 to-primary-100 dark:from-gray-700 dark:to-gray-800 hover:from-primary-100 hover:to-primary-200 dark:hover:from-gray-600 dark:hover:to-gray-700 rounded-xl p-6 transition-all duration-200 hover:shadow-lg hover:scale-105 text-left border border-primary-200 dark:border-gray-600"
+            className="group bg-white dark:bg-gray-800 hover:bg-gradient-to-br hover:from-blue-50 hover:to-indigo-50 dark:hover:from-gray-700 dark:hover:to-gray-750 rounded-2xl p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 text-left border-2 border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600"
           >
-            <div className="text-3xl mb-3">{route.flag}</div>
-            <div className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
+            <div className="text-4xl mb-4 transform group-hover:scale-110 transition-transform duration-300">{route.flag}</div>
+            <div className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
               {route.origin} → {route.destination}
             </div>
-            <div className="text-sm text-gray-600 dark:text-gray-400 group-hover:text-primary-700 dark:group-hover:text-primary-300 transition-colors">
+            <div className="text-sm text-gray-500 dark:text-gray-400 font-medium">
               Quick search
             </div>
           </button>

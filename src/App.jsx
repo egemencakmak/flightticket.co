@@ -53,12 +53,12 @@ function HomePage() {
       <Hero />
 
       {/* Travelpayouts Metasearch Widget Section */}
-      <section className="relative z-10 -mt-12">
+      <section className="relative z-10 -mt-12 mb-4">
         <div className="container mx-auto px-4 max-w-6xl">
           {/* Travelpayouts Search Widget Container */}
           <div
             id="tpwl-search"
-            className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-4"
+            className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-4 border border-gray-100 dark:border-gray-700"
             style={{ minHeight: '240px' }}
           />
         </div>
@@ -76,14 +76,14 @@ function HomePage() {
       </section>
 
       {/* Recent Searches */}
-      <section className="py-8">
+      <section className="py-10 bg-white dark:bg-gray-800">
         <div className="container mx-auto px-4 max-w-6xl">
           <RecentSearches onSearchClick={handleSearch} />
         </div>
       </section>
 
       {/* Popular Routes */}
-      <section className="py-12 bg-white dark:bg-gray-800">
+      <section className="py-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
         <div className="container mx-auto px-4 max-w-6xl">
           <PopularRoutes onRouteClick={handleSearch} />
         </div>

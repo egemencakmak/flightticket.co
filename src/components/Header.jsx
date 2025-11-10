@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom'
 
 export default function Header({ darkMode, setDarkMode }) {
   return (
-    <header className="bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-50">
+    <header className="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50 border-b border-gray-100 dark:border-gray-700">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
+          <Link to="/" className="flex items-center space-x-2.5 group">
             <svg
-              className="w-8 h-8 text-primary-600 group-hover:text-primary-700 transition-colors"
+              className="w-9 h-9 text-blue-600 group-hover:text-blue-700 transition-all duration-200 group-hover:scale-110"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -17,11 +17,11 @@ export default function Header({ darkMode, setDarkMode }) {
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth={2}
+                strokeWidth={2.5}
                 d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
               />
             </svg>
-            <span className="text-xl font-bold text-gray-900 dark:text-white">
+            <span className="text-xl font-extrabold text-gray-900 dark:text-white tracking-tight">
               Flightticket
             </span>
           </Link>
@@ -68,16 +68,16 @@ export default function Header({ darkMode, setDarkMode }) {
             )}
 
             {/* Navigation Links */}
-            <nav className="hidden md:flex items-center space-x-6">
+            <nav className="hidden md:flex items-center space-x-8">
               <Link
                 to="/about"
-                className="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium text-sm"
               >
                 About
               </Link>
               <Link
                 to="/contact"
-                className="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium text-sm"
               >
                 Contact
               </Link>

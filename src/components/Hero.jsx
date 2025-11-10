@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Hero() {
   return (
-    <section className="relative bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white py-12 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white py-16 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
@@ -17,36 +17,34 @@ export default function Hero() {
         </svg>
       </div>
 
-      <div className="container mx-auto px-4 max-w-6xl relative z-10">
+      <div className="container mx-auto px-4 max-w-5xl relative z-10">
         <div className="text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-5 leading-tight tracking-tight">
             Find Your Perfect Flight
           </h1>
-          <p className="text-xl md:text-2xl text-primary-100 mb-8 max-w-3xl mx-auto">
-            Compare prices from hundreds of airlines and travel agencies.
-            <br className="hidden md:block" />
-            Book the best deals for your next adventure.
+          <p className="text-lg md:text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Compare prices from hundreds of airlines and travel agencies to book the best deals for your next adventure.
           </p>
 
           {/* Features */}
-          <div className="flex flex-wrap justify-center gap-6 md:gap-8 mt-12">
-            <div className="flex items-center space-x-2">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          <div className="flex flex-wrap justify-center gap-8 mt-8">
+            <div className="flex items-center space-x-2.5 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+              <svg className="w-5 h-5 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
               </svg>
-              <span className="text-primary-100">Best Prices</span>
+              <span className="text-sm font-medium">Best Prices</span>
             </div>
-            <div className="flex items-center space-x-2">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            <div className="flex items-center space-x-2.5 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+              <svg className="w-5 h-5 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
               </svg>
-              <span className="text-primary-100">Instant Search</span>
+              <span className="text-sm font-medium">Instant Search</span>
             </div>
-            <div className="flex items-center space-x-2">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            <div className="flex items-center space-x-2.5 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+              <svg className="w-5 h-5 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
               </svg>
-              <span className="text-primary-100">Secure Booking</span>
+              <span className="text-sm font-medium">Secure Booking</span>
             </div>
           </div>
         </div>

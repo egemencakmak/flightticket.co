@@ -64,7 +64,13 @@ VITE_SITE_NAME=Flightticket
 
 1. Sign up at [Travelpayouts](https://www.travelpayouts.com/)
 2. Get your marker ID from the dashboard
-3. Update the marker in:
+3. **Configure Widget Domain (CRITICAL):**
+   - Go to Travelpayouts Dashboard → Whitelabel Settings
+   - Add your domain in this format: `https://flightticket.co`
+   - If using www subdomain, also add: `https://www.flightticket.co`
+   - For local testing, add: `http://localhost:3000`
+   - **Without this, widget will show "Loading..." forever!**
+4. Update the marker in:
    - React: `.env` file (`VITE_TP_MARKER`)
    - Vanilla: `vanilla/script.js` (line 2: `const TP_MARKER`)
 

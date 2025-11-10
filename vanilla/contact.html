@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Contact Us - Flightticket</title>
+    <meta name="description" content="Get in touch with Flightticket.co - We're here to help with your questions and feedback.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://tpembars.com">
+
+    <!-- Travelpayouts Embed Script - EXACT INTEGRATION AS REQUIRED -->
+    <script data-noptimize="1" data-cfasync="false" data-wpfc-render="false">
+      (function () {
+          var script = document.createElement("script");
+          script.async = 1;
+          script.src = 'https://tpembars.com/NDcyNDM4.js?t=472438';
+          document.head.appendChild(script);
+      })();
+    </script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                    </svg>
+                    <span class="logo-text">Flightticket</span>
+                </a>
+
+                <div class="header-actions">
+                    <button id="dark-mode-toggle" class="icon-btn" aria-label="Toggle dark mode">
+                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                        <svg class="moon-icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                        </svg>
+                    </button>
+
+                    <nav class="nav">
+                        <a href="about.html">About</a>
+                        <a href="contact.html">Contact</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main style="min-height: 100vh; background: var(--bg-color); padding: 3rem 0;">
+        <div class="container" style="max-width: 900px;">
+            <div class="card" style="padding: 3rem;">
+                <h1 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem;">Contact Us</h1>
+                <p style="color: var(--gray-600); margin-bottom: 2rem;">
+                    Have a question or feedback? We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.
+                </p>
+
+                <!-- Contact Information -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+                    <div style="display: flex; align-items: start; gap: 1rem;">
+                        <div style="background: var(--primary-100); padding: 0.75rem; border-radius: 0.5rem;">
+                            <svg style="width: 1.5rem; height: 1.5rem; color: var(--primary-600);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 0.25rem;">Email</h3>
+                            <p style="font-size: 0.875rem; color: var(--gray-600);">support@flightticket.co</p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: start; gap: 1rem;">
+                        <div style="background: var(--primary-100); padding: 0.75rem; border-radius: 0.5rem;">
+                            <svg style="width: 1.5rem; height: 1.5rem; color: var(--primary-600);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 0.25rem;">Response Time</h3>
+                            <p style="font-size: 0.875rem; color: var(--gray-600);">Within 24-48 hours</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <form id="contact-form" style="display: grid; gap: 1.5rem;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <div class="form-group">
+                            <label for="name">Your Name *</label>
+                            <input type="text" id="name" name="name" required class="input-field" placeholder="John Doe">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Your Email *</label>
+                            <input type="email" id="email" name="email" required class="input-field" placeholder="john@example.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input type="text" id="subject" name="subject" required class="input-field" placeholder="How can we help you?">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required rows="6" class="input-field" placeholder="Tell us more about your inquiry..." style="resize: vertical;"></textarea>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="btn-primary" id="submit-btn">
+                            Send Message
+                        </button>
+                        <p id="form-message" style="margin-top: 1rem; display: none;"></p>
+                    </div>
+                </form>
+
+                <!-- FAQ Section -->
+                <div style="margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--border-color);">
+                    <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
+
+                    <div style="display: grid; gap: 1rem;">
+                        <details style="background: var(--gray-50); padding: 1rem; border-radius: 0.5rem;">
+                            <summary style="font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                                <span>How do I book a flight?</span>
+                                <span style="font-size: 1.25rem;">▼</span>
+                            </summary>
+                            <p style="margin-top: 1rem; color: var(--gray-700); font-size: 0.875rem; line-height: 1.6;">
+                                After searching for flights on Flightticket.co, you'll see results from our partner booking platforms.
+                                Click on any flight to be redirected to the booking site where you can complete your purchase securely.
+                            </p>
+                        </details>
+
+                        <details style="background: var(--gray-50); padding: 1rem; border-radius: 0.5rem;">
+                            <summary style="font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                                <span>Can I cancel or modify my booking?</span>
+                                <span style="font-size: 1.25rem;">▼</span>
+                            </summary>
+                            <p style="margin-top: 1rem; color: var(--gray-700); font-size: 0.875rem; line-height: 1.6;">
+                                Since bookings are made directly with our partner platforms, you'll need to contact them for any
+                                changes or cancellations. Check your booking confirmation email for their contact information.
+                            </p>
+                        </details>
+
+                        <details style="background: var(--gray-50); padding: 1rem; border-radius: 0.5rem;">
+                            <summary style="font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                                <span>Why are prices different from what I saw initially?</span>
+                                <span style="font-size: 1.25rem;">▼</span>
+                            </summary>
+                            <p style="margin-top: 1rem; color: var(--gray-700); font-size: 0.875rem; line-height: 1.6;">
+                                Flight prices change constantly based on availability and demand. The prices shown on our site are
+                                updated in real-time, but may change slightly when you click through to book.
+                            </p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">
+                        <svg class="footer-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                        </svg>
+                        <span>Flightticket</span>
+                    </div>
+                    <p>Find and compare flights from hundreds of airlines and travel agencies.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-disclosure">
+                <strong>Affiliate Disclosure:</strong> Flightticket.co is an affiliate marketing platform.
+                We may earn a commission when you book flights through our links, at no extra cost to you.
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Flightticket.co. All rights reserved.</p>
+                <p>Made with <span style="color: #ef4444;">♥</span> for travelers worldwide</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const html = document.documentElement;
+        const savedDarkMode = localStorage.getItem('darkMode');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const isDark = savedDarkMode === 'true' || (savedDarkMode === null && prefersDark);
+
+        if (isDark) {
+            html.classList.add('dark');
+            document.querySelector('.sun-icon').classList.add('hidden');
+            document.querySelector('.moon-icon').classList.remove('hidden');
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            const isDarkMode = html.classList.toggle('dark');
+            localStorage.setItem('darkMode', isDarkMode);
+
+            if (isDarkMode) {
+                document.querySelector('.sun-icon').classList.add('hidden');
+                document.querySelector('.moon-icon').classList.remove('hidden');
+            } else {
+                document.querySelector('.sun-icon').classList.remove('hidden');
+                document.querySelector('.moon-icon').classList.add('hidden');
+            }
+        });
+
+        // Contact Form
+        const form = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const formMessage = document.getElementById('form-message');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+
+            // In production, send this to your backend
+            console.log('Contact form submitted:', formData);
+
+            // Show success message
+            submitBtn.textContent = '✓ Message Sent!';
+            submitBtn.style.backgroundColor = '#10b981';
+            formMessage.textContent = 'Thank you for your message! We\'ll get back to you soon.';
+            formMessage.style.display = 'block';
+            formMessage.style.color = '#10b981';
+
+            // Reset form
+            setTimeout(() => {
+                form.reset();
+                submitBtn.textContent = 'Send Message';
+                submitBtn.style.backgroundColor = '';
+                formMessage.style.display = 'none';
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import SearchBar from './components/SearchBar'
 import ResultsSection from './components/ResultsSection'
 import PopularRoutes from './components/PopularRoutes'
+import PromoCards from './components/PromoCards'
 import RecentSearches from './components/RecentSearches'
 import Footer from './components/Footer'
 import Header from './components/Header'
@@ -51,6 +52,9 @@ function HomePage() {
 
       {/* Hero Section */}
       <Hero />
+
+      {/* Promo Cards Section */}
+      <PromoCards />
 
       {/* Travelpayouts Metasearch Widget Section */}
       <section className="relative z-10 -mt-12">

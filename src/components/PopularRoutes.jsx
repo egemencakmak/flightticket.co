@@ -1,14 +1,14 @@
 import React from 'react'
 
 const POPULAR_ROUTES = [
-  { origin: 'IST', destination: 'PAR', label: 'Istanbul → Paris', flag: '🇹🇷 → 🇫🇷' },
-  { origin: 'IST', destination: 'LON', label: 'Istanbul → London', flag: '🇹🇷 → 🇬🇧' },
-  { origin: 'IST', destination: 'BCN', label: 'Istanbul → Barcelona', flag: '🇹🇷 → 🇪🇸' },
-  { origin: 'IST', destination: 'AMS', label: 'Istanbul → Amsterdam', flag: '🇹🇷 → 🇳🇱' },
-  { origin: 'IST', destination: 'FCO', label: 'Istanbul → Rome', flag: '🇹🇷 → 🇮🇹' },
-  { origin: 'IST', destination: 'DXB', label: 'Istanbul → Dubai', flag: '🇹🇷 → 🇦🇪' },
-  { origin: 'AYT', destination: 'FRA', label: 'Antalya → Frankfurt', flag: '🇹🇷 → 🇩🇪' },
-  { origin: 'ESB', destination: 'MUC', label: 'Ankara → Munich', flag: '🇹🇷 → 🇩🇪' },
+  { origin: 'IST', destination: 'PAR', label: 'Istanbul → Paris', flag: '🇹🇷 → 🇫🇷', image: '/images/routes/IST-PAR.jpg' },
+  { origin: 'IST', destination: 'LON', label: 'Istanbul → London', flag: '🇹🇷 → 🇬🇧', image: '/images/routes/IST-LON.jpg' },
+  { origin: 'IST', destination: 'BCN', label: 'Istanbul → Barcelona', flag: '🇹🇷 → 🇪🇸', image: '/images/routes/IST-BCN.jpg' },
+  { origin: 'IST', destination: 'AMS', label: 'Istanbul → Amsterdam', flag: '🇹🇷 → 🇳🇱', image: '/images/routes/IST-AMS.jpg' },
+  { origin: 'IST', destination: 'FCO', label: 'Istanbul → Rome', flag: '🇹🇷 → 🇮🇹', image: '/images/routes/IST-FCO.jpg' },
+  { origin: 'IST', destination: 'DXB', label: 'Istanbul → Dubai', flag: '🇹🇷 → 🇦🇪', image: '/images/routes/IST-DXB.jpg' },
+  { origin: 'AYT', destination: 'FRA', label: 'Antalya → Frankfurt', flag: '🇹🇷 → 🇩🇪', image: '/images/routes/AYT-FRA.jpg' },
+  { origin: 'ESB', destination: 'MUC', label: 'Ankara → Munich', flag: '🇹🇷 → 🇩🇪', image: '/images/routes/ESB-MUC.jpg' },
 ]
 
 export default function PopularRoutes({ onRouteClick }) {
@@ -36,26 +36,46 @@ export default function PopularRoutes({ onRouteClick }) {
 
   return (
     <div>
-      <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+      <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
         Popular Routes
       </h2>
-      <p className="text-gray-600 dark:text-gray-400 text-center mb-8 max-w-2xl mx-auto">
+      <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-3xl">
         Quick search for the most popular destinations. Click on any route to search for flights.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
         {POPULAR_ROUTES.map((route, index) => (
           <button
             key={index}
             onClick={() => handleRouteClick(route)}
-            className="group bg-gradient-to-br from-primary-50 to-primary-100 dark:from-gray-700 dark:to-gray-800 hover:from-primary-100 hover:to-primary-200 dark:hover:from-gray-600 dark:hover:to-gray-700 rounded-xl p-6 transition-all duration-200 hover:shadow-lg hover:scale-105 text-left border border-primary-200 dark:border-gray-600"
+            className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02] text-left border border-gray-200 dark:border-gray-700"
           >
-            <div className="text-3xl mb-3">{route.flag}</div>
-            <div className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
-              {route.origin} → {route.destination}
+            {/* Route Image */}
+            <div className="relative h-36 overflow-hidden bg-gradient-to-br from-primary-100 to-primary-200 dark:from-gray-700 dark:to-gray-600">
+              <img
+                src={route.image}
+                alt={route.label}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                onError={(e) => {
+                  // Fallback to gradient with flag if image fails to load
+                  e.target.style.display = 'none'
+                  e.target.nextElementSibling.style.display = 'flex'
+                }}
+              />
+              {/* Fallback content */}
+              <div className="absolute inset-0 hidden items-center justify-center text-5xl">
+                {route.flag}
+              </div>
             </div>
-            <div className="text-sm text-gray-600 dark:text-gray-400 group-hover:text-primary-700 dark:group-hover:text-primary-300 transition-colors">
-              Quick search
+
+            {/* Route Info */}
+            <div className="p-4">
+              <div className="text-lg font-bold text-gray-900 dark:text-white mb-1">
+                {route.origin} → {route.destination}
+              </div>
+              <div className="text-sm text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                {route.label.split(' → ')[1]}
+              </div>
             </div>
           </button>
         ))}

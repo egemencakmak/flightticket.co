@@ -53,24 +53,24 @@ function HomePage() {
       <Hero />
 
       {/* Travelpayouts Metasearch Widget Section */}
-      <section className="relative z-10 -mt-16">
+      <section className="relative z-10 -mt-12">
         <div className="container mx-auto px-4 max-w-6xl">
           {/* Travelpayouts Search Widget Container */}
           <div
             id="tpwl-search"
-            className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6"
-            style={{ minHeight: '400px' }}
+            className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-4"
+            style={{ minHeight: '240px' }}
           />
         </div>
       </section>
 
       {/* Travelpayouts Search Results Section */}
-      <section className="py-4">
+      <section className="py-2">
         <div className="container mx-auto px-4 max-w-6xl">
           {/* Travelpayouts Tickets/Results Container */}
           <div
             id="tpwl-tickets"
-            style={{ minHeight: '600px' }}
+            style={{ minHeight: '400px' }}
           />
         </div>
       </section>

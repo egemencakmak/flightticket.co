@@ -66,3 +66,26 @@
 #tp-widget-root {
   @apply min-h-[400px] w-full;
 }
+
+/* === Travelpayouts WL Widget Optimization === */
+#tpwl-search {
+  min-height: 240px !important;
+  padding: 16px !important;
+  margin-top: 12px !important;
+  margin-bottom: 16px !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+}
+
+#tpwl-tickets {
+  min-height: 400px !important;
+  margin-top: 16px !important;
+}
+
+/* Reduce spacing around widget sections */
+section:has(#tpwl-search) {
+  margin-bottom: 0 !important;
+}
+
+section:has(#tpwl-tickets) {
+  padding-top: 0.5rem !important;
+}

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Flighticket - Find & Compare Cheap Flights | Best Flight Deals</title>
+    <meta name="title" content="Flighticket - Find & Compare Cheap Flights | Best Flight Deals">
+    <meta name="description" content="Search and compare flights from hundreds of airlines and travel agencies. Find the best flight deals for your next trip with Flighticket.">
+    <meta name="keywords" content="cheap flights, flight search, compare flights, flight deals, airline tickets, travel">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://flighticket.co/">
+    <meta property="og:title" content="Flighticket - Find & Compare Cheap Flights">
+    <meta property="og:description" content="Search and compare flights from hundreds of airlines and travel agencies. Find the best flight deals for your next trip.">
+    <meta property="og:image" content="https://flighticket.co/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://flighticket.co/">
+    <meta property="twitter:title" content="Flighticket - Find & Compare Cheap Flights">
+    <meta property="twitter:description" content="Search and compare flights from hundreds of airlines and travel agencies.">
+    <meta property="twitter:image" content="https://flighticket.co/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://tpembars.com">
+
+    <!-- Travelpayouts Embed Script - EXACT INTEGRATION AS REQUIRED -->
+    <script data-noptimize="1" data-cfasync="false" data-wpfc-render="false">
+      (function () {
+          var script = document.createElement("script");
+          script.async = 1;
+          script.src = 'https://tpembars.com/NDcyNDM4.js?t=472438';
+          document.head.appendChild(script);
+      })();
+    </script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                    </svg>
+                    <span class="logo-text">Flighticket</span>
+                </a>
+
+                <div class="header-actions">
+                    <button id="dark-mode-toggle" class="icon-btn" aria-label="Toggle dark mode">
+                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                        <svg class="moon-icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                        </svg>
+                    </button>
+
+                    <nav class="nav">
+                        <a href="about.html">About</a>
+                        <a href="contact.html">Contact</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-pattern"></div>
+        <div class="container hero-content">
+            <h1 class="hero-title">Find Your Perfect Flight</h1>
+            <p class="hero-subtitle">
+                Compare prices from hundreds of airlines and travel agencies.<br>
+                Book the best deals for your next adventure.
+            </p>
+
+            <div class="hero-features">
+                <div class="feature-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    <span>Best Prices</span>
+                </div>
+                <div class="feature-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    <span>Instant Search</span>
+                </div>
+                <div class="feature-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    <span>Secure Booking</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Bar -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-card">
+                <form id="search-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="origin">From</label>
+                            <input type="text" id="origin" placeholder="City or IATA code (e.g., IST)" autocomplete="off" required>
+                            <div id="origin-suggestions" class="suggestions"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="destination">To</label>
+                            <input type="text" id="destination" placeholder="City or IATA code (e.g., PAR)" autocomplete="off" required>
+                            <div id="destination-suggestions" class="suggestions"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="departure-date">Departure Date</label>
+                            <input type="date" id="departure-date" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="return-date">Return Date <span class="optional">(optional)</span></label>
+                            <input type="date" id="return-date">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Passengers</label>
+                        <div class="passenger-row">
+                            <div class="passenger-input">
+                                <label for="adults">Adults (12+)</label>
+                                <select id="adults">
+                                    <option value="1" selected>1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                </select>
+                            </div>
+
+                            <div class="passenger-input">
+                                <label for="children">Children (2-11)</label>
+                                <select id="children">
+                                    <option value="0" selected>0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>
+
+                            <div class="passenger-input">
+                                <label for="infants">Infants (0-2)</label>
+                                <select id="infants">
+                                    <option value="0" selected>0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                        Search Flights
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Searches -->
+    <section class="recent-searches-section" id="recent-searches-section" style="display: none;">
+        <div class="container">
+            <div class="recent-searches-card">
+                <div class="recent-searches-header">
+                    <h3>Recent Searches</h3>
+                    <button id="clear-searches" class="clear-btn">Clear all</button>
+                </div>
+                <div id="recent-searches-list"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Routes -->
+    <section class="popular-routes-section">
+        <div class="container">
+            <h2>Popular Routes</h2>
+            <p class="section-subtitle">Quick search for the most popular destinations. Click on any route to search for flights.</p>
+
+            <div class="routes-grid" id="popular-routes"></div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results-section" class="results-section" style="display: none;">
+        <div class="container">
+            <div id="results-summary" class="results-summary"></div>
+            <div id="results-loading" class="loading-card">
+                <div class="spinner"></div>
+                <p>Searching for the best flights...</p>
+            </div>
+            <div id="results-error" class="error-card" style="display: none;"></div>
+            <div id="tp-widget-root"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">
+                        <svg class="footer-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                        </svg>
+                        <span>Flighticket</span>
+                    </div>
+                    <p>Find and compare flights from hundreds of airlines and travel agencies. Your journey starts here.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-disclosure">
+                <strong>Affiliate Disclosure:</strong> Flighticket.co is an affiliate marketing platform.
+                We may earn a commission when you book flights through our links, at no extra cost to you.
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Flighticket.co. All rights reserved.</p>
+                <p>Made with <span style="color: #ef4444;">♥</span> for travelers worldwide</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <p>
+                🍪 We use cookies and third-party services to improve your experience. By continuing to use this site, you agree to our
+                <a href="privacy.html">Privacy Policy</a>.
+            </p>
+            <button id="accept-cookies" class="cookie-btn">Accept</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

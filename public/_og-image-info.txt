@@ -1,0 +1,16 @@
+OG IMAGE PLACEHOLDER
+
+For production, replace this with a real 1200x630 image at public/og-image.jpg
+
+Recommended content:
+- Flighticket logo
+- Tagline: "Find & Compare Cheap Flights"
+- Background: gradient blue
+- Airplane illustration
+
+You can create this image using:
+- Canva (https://www.canva.com) - use template "Facebook Post" or custom 1200x630
+- Figma (https://www.figma.com)
+- Photoshop or any image editor
+
+For now, the site will work without this image, but it's recommended for social sharing.

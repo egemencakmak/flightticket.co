@@ -1,0 +1,13 @@
+# Robots.txt for Flighticket.co
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://flighticket.co/sitemap.xml
+
+# Crawl-delay (optional, for rate limiting)
+Crawl-delay: 1

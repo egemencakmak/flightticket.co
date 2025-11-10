@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>Flighticket - Find & Compare Cheap Flights | Best Flight Deals</title>
+    <meta name="title" content="Flighticket - Find & Compare Cheap Flights | Best Flight Deals" />
+    <meta name="description" content="Search and compare flights from hundreds of airlines and travel agencies. Find the best flight deals for your next trip with Flighticket." />
+    <meta name="keywords" content="cheap flights, flight search, compare flights, flight deals, airline tickets, travel" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://flighticket.co/" />
+    <meta property="og:title" content="Flighticket - Find & Compare Cheap Flights" />
+    <meta property="og:description" content="Search and compare flights from hundreds of airlines and travel agencies. Find the best flight deals for your next trip." />
+    <meta property="og:image" content="https://flighticket.co/og-image.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://flighticket.co/" />
+    <meta property="twitter:title" content="Flighticket - Find & Compare Cheap Flights" />
+    <meta property="twitter:description" content="Search and compare flights from hundreds of airlines and travel agencies." />
+    <meta property="twitter:image" content="https://flighticket.co/og-image.jpg" />
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://tpembars.com" />
+    <link rel="dns-prefetch" href="https://tpembars.com" />
+
+    <!-- Travelpayouts Embed Script - EXACT INTEGRATION AS REQUIRED -->
+    <script data-noptimize="1" data-cfasync="false" data-wpfc-render="false">
+      (function () {
+          var script = document.createElement("script");
+          script.async = 1;
+          script.src = 'https://tpembars.com/NDcyNDM4.js?t=472438';
+          document.head.appendChild(script);
+      })();
+    </script>
+
+    <!-- GDPR Cookie Notice Style -->
+    <style>
+      .cookie-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.9);
+        color: white;
+        padding: 1rem;
+        z-index: 9999;
+        display: none;
+      }
+      .cookie-banner.show {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- Cookie/GDPR Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+      <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <p style="margin: 0; flex: 1;">
+          🍪 We use cookies and third-party services to improve your experience. By continuing to use this site, you agree to our
+          <a href="/privacy" style="color: #60a5fa; text-decoration: underline;">Privacy Policy</a>.
+        </p>
+        <button id="accept-cookies" style="background: #3b82f6; color: white; padding: 0.5rem 1.5rem; border: none; border-radius: 0.375rem; cursor: pointer; font-weight: 600;">
+          Accept
+        </button>
+      </div>
+    </div>
+
+    <script>
+      // Cookie Banner Logic
+      (function() {
+        const banner = document.getElementById('cookie-banner');
+        const acceptBtn = document.getElementById('accept-cookies');
+
+        if (!localStorage.getItem('cookies-accepted')) {
+          banner.classList.add('show');
+        }
+
+        acceptBtn.addEventListener('click', function() {
+          localStorage.setItem('cookies-accepted', 'true');
+          banner.classList.remove('show');
+        });
+      })();
+    </script>
+
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -52,10 +52,23 @@ function HomePage() {
       {/* Hero Section */}
       <Hero />
 
-      {/* Search Bar Section */}
+      {/* Travelpayouts Widget Section */}
       <section className="relative z-10 -mt-16">
         <div className="container mx-auto px-4 max-w-6xl">
-          <SearchBar onSearch={handleSearch} />
+          {/* Travelpayouts Widget Container - The widget script will automatically render here */}
+          <div
+            id="tp-widget-container"
+            className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6 min-h-[400px]"
+            data-tp-widget="avia"
+          >
+            {/* Widget loads automatically from the script in <head> */}
+            <div className="flex items-center justify-center h-64">
+              <div className="text-center">
+                <div className="spinner mx-auto mb-4"></div>
+                <p className="text-gray-600 dark:text-gray-400">Loading flight search widget...</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

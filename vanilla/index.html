@@ -29,8 +29,9 @@
 
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://tpembars.com">
+    <link rel="preconnect" href="https://tpwgt.com">
 
-    <!-- Travelpayouts Embed Script - EXACT INTEGRATION AS REQUIRED -->
+    <!-- Travelpayouts Tracking Script -->
     <script data-noptimize="1" data-cfasync="false" data-wpfc-render="false">
       (function () {
           var script = document.createElement("script");
@@ -38,6 +39,17 @@
           script.src = 'https://tpembars.com/NDcyNDM4.js?t=472438';
           document.head.appendChild(script);
       })();
+    </script>
+
+    <!-- Travelpayouts Widget Script - Main Search Widget -->
+    <script data-noptimize="1" data-cfasync="false" data-wpfc-render="false">
+      (function () {
+            var script = document.createElement("script");
+            script.async = 1;
+            script.type = "module";
+            script.src = "https://tpwgt.com/wl_web/main.js?wl_id=713";
+            document.head.appendChild(script);
+          })();
     </script>
 
     <!-- Styles -->
@@ -107,84 +119,18 @@
         </div>
     </section>
 
-    <!-- Search Bar -->
+    <!-- Travelpayouts Widget Section -->
     <section class="search-section">
         <div class="container">
-            <div class="search-card">
-                <form id="search-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="origin">From</label>
-                            <input type="text" id="origin" placeholder="City or IATA code (e.g., IST)" autocomplete="off" required>
-                            <div id="origin-suggestions" class="suggestions"></div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="destination">To</label>
-                            <input type="text" id="destination" placeholder="City or IATA code (e.g., PAR)" autocomplete="off" required>
-                            <div id="destination-suggestions" class="suggestions"></div>
-                        </div>
+            <!-- Travelpayouts Widget Container - The widget script will automatically render here -->
+            <div id="tp-widget-container" class="search-card" data-tp-widget="avia" style="min-height: 400px;">
+                <!-- Widget loads automatically from the script in <head> -->
+                <div style="display: flex; align-items: center; justify-content: center; height: 300px;">
+                    <div style="text-align: center;">
+                        <div class="spinner" style="margin: 0 auto 1rem;"></div>
+                        <p style="color: var(--gray-600);">Loading flight search widget...</p>
                     </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="departure-date">Departure Date</label>
-                            <input type="date" id="departure-date" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="return-date">Return Date <span class="optional">(optional)</span></label>
-                            <input type="date" id="return-date">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Passengers</label>
-                        <div class="passenger-row">
-                            <div class="passenger-input">
-                                <label for="adults">Adults (12+)</label>
-                                <select id="adults">
-                                    <option value="1" selected>1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                </select>
-                            </div>
-
-                            <div class="passenger-input">
-                                <label for="children">Children (2-11)</label>
-                                <select id="children">
-                                    <option value="0" selected>0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                </select>
-                            </div>
-
-                            <div class="passenger-input">
-                                <label for="infants">Infants (0-2)</label>
-                                <select id="infants">
-                                    <option value="0" selected>0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn-primary">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                        </svg>
-                        Search Flights
-                    </button>
-                </form>
+                </div>
             </div>
         </div>
     </section>

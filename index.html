@@ -28,8 +28,10 @@
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://tpembars.com" />
     <link rel="dns-prefetch" href="https://tpembars.com" />
+    <link rel="preconnect" href="https://tpwgt.com" />
+    <link rel="dns-prefetch" href="https://tpwgt.com" />
 
-    <!-- Travelpayouts Embed Script - EXACT INTEGRATION AS REQUIRED -->
+    <!-- Travelpayouts Tracking Script -->
     <script data-noptimize="1" data-cfasync="false" data-wpfc-render="false">
       (function () {
           var script = document.createElement("script");
@@ -37,6 +39,17 @@
           script.src = 'https://tpembars.com/NDcyNDM4.js?t=472438';
           document.head.appendChild(script);
       })();
+    </script>
+
+    <!-- Travelpayouts Widget Script - Main Search Widget -->
+    <script data-noptimize="1" data-cfasync="false" data-wpfc-render="false">
+      (function () {
+            var script = document.createElement("script");
+            script.async = 1;
+            script.type = "module";
+            script.src = "https://tpwgt.com/wl_web/main.js?wl_id=713";
+            document.head.appendChild(script);
+          })();
     </script>
 
     <!-- GDPR Cookie Notice Style -->

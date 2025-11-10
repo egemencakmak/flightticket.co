@@ -52,6 +52,23 @@
           })();
     </script>
 
+    <!-- WL Results Observer: toggles .has-wl-results when results mount -->
+    <script>
+    (function(){
+      function check(){
+        var sec = document.querySelector("#tpwl-tickets");
+        if(!sec){ document.body.classList.remove("has-wl-results"); return; }
+        // If the section has meaningful height or children inside, consider it as having results
+        var has = sec.children && sec.children.length > 0 && sec.clientHeight > 200;
+        document.body.classList.toggle("has-wl-results", !!has);
+      }
+      var mo = new MutationObserver(check);
+      mo.observe(document.documentElement, {subtree:true, childList:true});
+      window.addEventListener("load", check);
+      setInterval(check, 1000); // safety refresh
+    })();
+    </script>
+
     <!-- GDPR Cookie Notice Style -->
     <style>
       .cookie-banner {

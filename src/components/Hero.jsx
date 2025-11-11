@@ -2,51 +2,36 @@ import React from 'react'
 
 export default function Hero() {
   return (
-    <section className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white py-16 overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }}></div>
-      </div>
+    <section className="relative h-[550px] overflow-hidden">
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute z-0 w-full h-full object-cover"
+        poster="https://flightticket.co/wp-content/uploads/2023/11/flight-poster.jpg"
+      >
+        <source src="https://flightticket.co/wp-content/uploads/2023/11/flight-video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
 
-      {/* Animated Plane Icons */}
-      <div className="absolute top-10 right-10 opacity-20 animate-bounce">
-        <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" stroke="currentColor" strokeWidth="2" fill="none"/>
-        </svg>
-      </div>
+      {/* Overlay */}
+      <div className="absolute z-10 w-full h-full bg-black/40"></div>
 
-      <div className="container mx-auto px-4 max-w-5xl relative z-10">
-        <div className="text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-5 leading-tight tracking-tight">
-            Find Your Perfect Flight
-          </h1>
-          <p className="text-lg md:text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Compare prices from hundreds of airlines and travel agencies to book the best deals for your next adventure.
-          </p>
+      <div className="container mx-auto px-4 max-w-5xl relative z-20 flex flex-col items-center justify-center h-full text-center">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-5 leading-tight tracking-tight shadow-lg">
+          Your Next Adventure Awaits
+        </h1>
+        <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed shadow-md">
+          Search for the best flight deals from hundreds of airlines and travel agencies.
+        </p>
 
-          {/* Features */}
-          <div className="flex flex-wrap justify-center gap-8 mt-8">
-            <div className="flex items-center space-x-2.5 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
-              <svg className="w-5 h-5 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-              </svg>
-              <span className="text-sm font-medium">Best Prices</span>
-            </div>
-            <div className="flex items-center space-x-2.5 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
-              <svg className="w-5 h-5 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-              </svg>
-              <span className="text-sm font-medium">Instant Search</span>
-            </div>
-            <div className="flex items-center space-x-2.5 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
-              <svg className="w-5 h-5 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-              </svg>
-              <span className="text-sm font-medium">Secure Booking</span>
-            </div>
-          </div>
+        {/* Scroll down arrow */}
+        <div className="absolute bottom-10 animate-bounce">
+          <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
         </div>
       </div>
     </section>

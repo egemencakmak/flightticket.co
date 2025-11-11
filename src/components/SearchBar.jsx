@@ -3,29 +3,59 @@ import { saveRecentSearch } from '../utils/format'
 
 // Popular airports with IATA codes
 const POPULAR_AIRPORTS = [
-  { code: 'IST', city: 'Istanbul', country: 'Turkey' },
-  { code: 'SAW', city: 'Istanbul Sabiha', country: 'Turkey' },
-  { code: 'AYT', city: 'Antalya', country: 'Turkey' },
-  { code: 'ESB', city: 'Ankara', country: 'Turkey' },
-  { code: 'ADB', city: 'Izmir', country: 'Turkey' },
-  { code: 'PAR', city: 'Paris', country: 'France' },
-  { code: 'CDG', city: 'Paris CDG', country: 'France' },
-  { code: 'LON', city: 'London', country: 'UK' },
-  { code: 'LHR', city: 'London Heathrow', country: 'UK' },
-  { code: 'BCN', city: 'Barcelona', country: 'Spain' },
-  { code: 'MAD', city: 'Madrid', country: 'Spain' },
-  { code: 'FCO', city: 'Rome', country: 'Italy' },
-  { code: 'MIL', city: 'Milan', country: 'Italy' },
-  { code: 'AMS', city: 'Amsterdam', country: 'Netherlands' },
-  { code: 'FRA', city: 'Frankfurt', country: 'Germany' },
-  { code: 'MUC', city: 'Munich', country: 'Germany' },
-  { code: 'DXB', city: 'Dubai', country: 'UAE' },
-  { code: 'NYC', city: 'New York', country: 'USA' },
-  { code: 'JFK', city: 'New York JFK', country: 'USA' },
-  { code: 'LAX', city: 'Los Angeles', country: 'USA' },
-]
+    { code: 'IST', city: 'Istanbul', country: 'Turkey' },
+    { code: 'SAW', city: 'Istanbul Sabiha', country: 'Turkey' },
+    { code: 'AYT', city: 'Antalya', country: 'Turkey' },
+    { code: 'ESB', city: 'Ankara', country: 'Turkey' },
+    { code: 'ADB', city: 'Izmir', country: 'Turkey' },
+    { code: 'PAR', city: 'Paris', country: 'France' },
+    { code: 'CDG', city: 'Paris CDG', country: 'France' },
+    { code: 'LON', city: 'London', country: 'UK' },
+    { code: 'LHR', city: 'London Heathrow', country: 'UK' },
+    { code: 'BCN', city: 'Barcelona', country: 'Spain' },
+    { code: 'MAD', city: 'Madrid', country: 'Spain' },
+    { code: 'FCO', city: 'Rome', country: 'Italy' },
+    { code: 'MIL', city: 'Milan', country: 'Italy' },
+    { code: 'AMS', city: 'Amsterdam', country: 'Netherlands' },
+    { code: 'FRA', city: 'Frankfurt', country: 'Germany' },
+    { code: 'MUC', city: 'Munich', country: 'Germany' },
+    { code: 'DXB', city: 'Dubai', country: 'UAE' },
+    { code: 'NYC', city: 'New York', country: 'USA' },
+    { code: 'JFK', city: 'New York JFK', country: 'USA' },
+    { code: 'LAX', city: 'Los Angeles', country: 'USA' },
+  ]
+
+const SearchField = ({ id, label, value, onChange, placeholder, error, suggestions, onSuggestionClick, icon }) => {
+  const ref = useRef(null)
+
+  return (
+    <div className="relative" ref={ref}>
+      <label htmlFor={id} className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+        {label}
+      </label>
+      <div className="relative">
+        <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+          {icon}
+        </span>
+        <input
+          type="text"
+          id={id}
+          name={id}
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+          className={`input-field pl-10 ${error ? 'border-red-500' : ''}`}
+          autoComplete="off"
+        />
+      </div>
+      {error && <p className="mt-1 text-sm text-red-600">{error}</p>}
+      {suggestions}
+    </div>
+  )
+}
 
 export default function SearchBar({ onSearch }) {
+  const [tripType, setTripType] = useState('round-trip')
   const [formData, setFormData] = useState({
     origin: '',
     destination: '',
@@ -45,45 +75,31 @@ export default function SearchBar({ onSearch }) {
   const originRef = useRef(null)
   const destinationRef = useRef(null)
 
-  // Get today's date in YYYY-MM-DD format for min date
   const today = new Date().toISOString().split('T')[0]
 
-  // Handle input change
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
     setErrors(prev => ({ ...prev, [name]: '' }))
 
-    // Autocomplete for origin
-    if (name === 'origin') {
-      if (value.length >= 2) {
-        const filtered = POPULAR_AIRPORTS.filter(airport =>
-          airport.code.toLowerCase().includes(value.toLowerCase()) ||
-          airport.city.toLowerCase().includes(value.toLowerCase())
-        )
-        setOriginSuggestions(filtered)
+    if (name === 'origin' || name === 'destination') {
+      const suggestions = value.length >= 2
+        ? POPULAR_AIRPORTS.filter(airport =>
+            airport.code.toLowerCase().includes(value.toLowerCase()) ||
+            airport.city.toLowerCase().includes(value.toLowerCase())
+          )
+        : []
+
+      if (name === 'origin') {
+        setOriginSuggestions(suggestions)
         setShowOriginSuggestions(true)
       } else {
-        setShowOriginSuggestions(false)
-      }
-    }
-
-    // Autocomplete for destination
-    if (name === 'destination') {
-      if (value.length >= 2) {
-        const filtered = POPULAR_AIRPORTS.filter(airport =>
-          airport.code.toLowerCase().includes(value.toLowerCase()) ||
-          airport.city.toLowerCase().includes(value.toLowerCase())
-        )
-        setDestinationSuggestions(filtered)
+        setDestinationSuggestions(suggestions)
         setShowDestinationSuggestions(true)
-      } else {
-        setShowDestinationSuggestions(false)
       }
     }
   }
 
-  // Handle suggestion click
   const handleSuggestionClick = (field, airport) => {
     setFormData(prev => ({ ...prev, [field]: airport.code }))
     if (field === 'origin') {
@@ -93,7 +109,6 @@ export default function SearchBar({ onSearch }) {
     }
   }
 
-  // Close suggestions on outside click
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (originRef.current && !originRef.current.contains(e.target)) {
@@ -108,288 +123,136 @@ export default function SearchBar({ onSearch }) {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  // Validate form
   const validate = () => {
     const newErrors = {}
-
-    if (!formData.origin || formData.origin.length < 3) {
-      newErrors.origin = 'Please enter a valid origin airport (IATA code)'
+    if (!formData.origin) newErrors.origin = 'Origin is required'
+    if (!formData.destination) newErrors.destination = 'Destination is required'
+    if (formData.origin === formData.destination) newErrors.destination = 'Cannot be same as origin'
+    if (!formData.departureDate) newErrors.departureDate = 'Departure date is required'
+    if (tripType === 'round-trip' && !formData.returnDate) {
+      newErrors.returnDate = 'Return date is required for round trips'
     }
-
-    if (!formData.destination || formData.destination.length < 3) {
-      newErrors.destination = 'Please enter a valid destination airport (IATA code)'
-    }
-
-    if (formData.origin === formData.destination) {
-      newErrors.destination = 'Destination must be different from origin'
-    }
-
-    if (!formData.departureDate) {
-      newErrors.departureDate = 'Please select a departure date'
-    }
-
-    const totalPassengers = formData.adults + formData.children + formData.infants
+    const totalPassengers = parseInt(formData.adults) + parseInt(formData.children) + parseInt(formData.infants);
     if (totalPassengers < 1 || totalPassengers > 9) {
-      newErrors.passengers = 'Total passengers must be between 1 and 9'
+      newErrors.passengers = 'Total passengers must be between 1 and 9';
     }
-
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
   }
 
-  // Handle form submit
   const handleSubmit = (e) => {
     e.preventDefault()
-
-    if (!validate()) {
-      return
-    }
-
-    // Save to recent searches
+    if (!validate()) return
     saveRecentSearch(formData)
-
-    // Call parent onSearch handler
     onSearch(formData)
   }
 
+  const renderSuggestions = (field, suggestions) => (
+    suggestions.length > 0 && (
+      <div className="absolute z-10 w-full mt-1 bg-white dark:bg-gray-700 rounded-lg shadow-lg border border-gray-200 dark:border-gray-600 max-h-60 overflow-y-auto">
+        {suggestions.map(airport => (
+          <button
+            key={airport.code}
+            type="button"
+            onClick={() => handleSuggestionClick(field, airport)}
+            className="w-full px-4 py-3 text-left hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
+          >
+            <div className="font-semibold">{airport.city} ({airport.code})</div>
+            <div className="text-sm text-gray-500">{airport.country}</div>
+          </button>
+        ))}
+      </div>
+    )
+  )
+
   return (
-    <div className="card shadow-2xl">
-      <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Origin and Destination */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* Origin */}
-          <div ref={originRef} className="relative">
-            <label htmlFor="origin" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              From
-            </label>
-            <div className="relative">
-              <input
-                type="text"
-                id="origin"
-                name="origin"
-                value={formData.origin}
-                onChange={handleChange}
-                placeholder="City or IATA code (e.g., IST)"
-                className={`input-field ${errors.origin ? 'border-red-500 ring-red-500' : ''}`}
-                autoComplete="off"
-              />
-              <svg
-                className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-            </div>
-            {errors.origin && (
-              <p className="mt-1 text-sm text-red-600">{errors.origin}</p>
-            )}
+    <div className="relative -mt-32 z-30">
+        <div className="container mx-auto px-4 max-w-5xl">
+            <div className="card shadow-2xl">
+                {/* Trip Type Tabs */}
+                <div className="flex mb-6 border-b border-gray-200 dark:border-gray-700">
+                    {['round-trip', 'one-way'].map(type => (
+                        <button
+                            key={type}
+                            onClick={() => setTripType(type)}
+                            className={`px-6 py-3 font-medium text-sm transition-colors ${
+                                tripType === type
+                                ? 'border-b-2 border-blue-600 text-blue-600 dark:text-blue-400'
+                                : 'text-gray-600 dark:text-gray-400 hover:text-blue-600'
+                            }`}
+                        >
+                            {type.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                        </button>
+                    ))}
+                </div>
 
-            {/* Origin Suggestions */}
-            {showOriginSuggestions && originSuggestions.length > 0 && (
-              <div className="absolute z-10 w-full mt-1 bg-white dark:bg-gray-700 rounded-lg shadow-lg border border-gray-200 dark:border-gray-600 max-h-60 overflow-y-auto">
-                {originSuggestions.map(airport => (
-                  <button
-                    key={airport.code}
-                    type="button"
-                    onClick={() => handleSuggestionClick('origin', airport)}
-                    className="w-full px-4 py-3 text-left hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors border-b border-gray-100 dark:border-gray-600 last:border-b-0"
-                  >
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="font-semibold text-gray-900 dark:text-white">
-                          {airport.city}
+                <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {/* Origin */}
+                        <div ref={originRef}>
+                            <SearchField
+                                id="origin"
+                                label="From"
+                                value={formData.origin}
+                                onChange={handleChange}
+                                placeholder="e.g., IST"
+                                error={errors.origin}
+                                icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>}
+                                suggestions={showOriginSuggestions && renderSuggestions('origin', originSuggestions)}
+                            />
                         </div>
-                        <div className="text-sm text-gray-500 dark:text-gray-400">
-                          {airport.country}
+
+                        {/* Destination */}
+                        <div ref={destinationRef}>
+                            <SearchField
+                                id="destination"
+                                label="To"
+                                value={formData.destination}
+                                onChange={handleChange}
+                                placeholder="e.g., PAR"
+                                error={errors.destination}
+                                icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 A.01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /></svg>}
+                                suggestions={showDestinationSuggestions && renderSuggestions('destination', destinationSuggestions)}
+                            />
                         </div>
-                      </div>
-                      <div className="text-primary-600 dark:text-primary-400 font-mono font-bold">
-                        {airport.code}
-                      </div>
+
+                        {/* Dates */}
+                        <div className="grid grid-cols-2 gap-4">
+                            <div>
+                                <label htmlFor="departureDate" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Depart</label>
+                                <input type="date" name="departureDate" value={formData.departureDate} onChange={handleChange} min={today} className={`input-field ${errors.departureDate ? 'border-red-500' : ''}`} />
+                                {errors.departureDate && <p className="mt-1 text-sm text-red-600">{errors.departureDate}</p>}
+                            </div>
+                            <div>
+                                <label htmlFor="returnDate" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Return</label>
+                                <input type="date" name="returnDate" value={formData.returnDate} onChange={handleChange} min={formData.departureDate || today} className={`input-field ${errors.returnDate ? 'border-red-500' : ''}`} disabled={tripType === 'one-way'} />
+                                {errors.returnDate && <p className="mt-1 text-sm text-red-600">{errors.returnDate}</p>}
+                            </div>
+                        </div>
+
+                        {/* Passengers */}
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Passengers</label>
+                            <div className="grid grid-cols-3 gap-2">
+                                {['adults', 'children', 'infants'].map(type => (
+                                    <div key={type}>
+                                        <label className="text-xs text-gray-500 capitalize">{type}</label>
+                                        <select name={type} value={formData[type]} onChange={handleChange} className="input-field">
+                                            {[...Array(10).keys()].slice(type === 'adults' ? 1 : 0).map(i => <option key={i} value={i}>{i}</option>)}
+                                        </select>
+                                    </div>
+                                ))}
+                            </div>
+                             {errors.passengers && <p className="mt-2 text-sm text-red-600">{errors.passengers}</p>}
+                        </div>
                     </div>
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
 
-          {/* Destination */}
-          <div ref={destinationRef} className="relative">
-            <label htmlFor="destination" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              To
-            </label>
-            <div className="relative">
-              <input
-                type="text"
-                id="destination"
-                name="destination"
-                value={formData.destination}
-                onChange={handleChange}
-                placeholder="City or IATA code (e.g., PAR)"
-                className={`input-field ${errors.destination ? 'border-red-500 ring-red-500' : ''}`}
-                autoComplete="off"
-              />
-              <svg
-                className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
+                    <button type="submit" className="btn-primary w-full text-lg">
+                        Search Flights
+                    </button>
+                </form>
             </div>
-            {errors.destination && (
-              <p className="mt-1 text-sm text-red-600">{errors.destination}</p>
-            )}
-
-            {/* Destination Suggestions */}
-            {showDestinationSuggestions && destinationSuggestions.length > 0 && (
-              <div className="absolute z-10 w-full mt-1 bg-white dark:bg-gray-700 rounded-lg shadow-lg border border-gray-200 dark:border-gray-600 max-h-60 overflow-y-auto">
-                {destinationSuggestions.map(airport => (
-                  <button
-                    key={airport.code}
-                    type="button"
-                    onClick={() => handleSuggestionClick('destination', airport)}
-                    className="w-full px-4 py-3 text-left hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors border-b border-gray-100 dark:border-gray-600 last:border-b-0"
-                  >
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="font-semibold text-gray-900 dark:text-white">
-                          {airport.city}
-                        </div>
-                        <div className="text-sm text-gray-500 dark:text-gray-400">
-                          {airport.country}
-                        </div>
-                      </div>
-                      <div className="text-primary-600 dark:text-primary-400 font-mono font-bold">
-                        {airport.code}
-                      </div>
-                    </div>
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
         </div>
-
-        {/* Dates */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* Departure Date */}
-          <div>
-            <label htmlFor="departureDate" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Departure Date
-            </label>
-            <input
-              type="date"
-              id="departureDate"
-              name="departureDate"
-              value={formData.departureDate}
-              onChange={handleChange}
-              min={today}
-              className={`input-field ${errors.departureDate ? 'border-red-500 ring-red-500' : ''}`}
-            />
-            {errors.departureDate && (
-              <p className="mt-1 text-sm text-red-600">{errors.departureDate}</p>
-            )}
-          </div>
-
-          {/* Return Date */}
-          <div>
-            <label htmlFor="returnDate" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Return Date <span className="text-gray-500">(optional)</span>
-            </label>
-            <input
-              type="date"
-              id="returnDate"
-              name="returnDate"
-              value={formData.returnDate}
-              onChange={handleChange}
-              min={formData.departureDate || today}
-              className="input-field"
-            />
-          </div>
-        </div>
-
-        {/* Passengers */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
-            Passengers
-          </label>
-          <div className="grid grid-cols-3 gap-4">
-            {/* Adults */}
-            <div>
-              <label htmlFor="adults" className="block text-xs text-gray-600 dark:text-gray-400 mb-1">
-                Adults (12+)
-              </label>
-              <select
-                id="adults"
-                name="adults"
-                value={formData.adults}
-                onChange={handleChange}
-                className="input-field"
-              >
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(num => (
-                  <option key={num} value={num}>{num}</option>
-                ))}
-              </select>
-            </div>
-
-            {/* Children */}
-            <div>
-              <label htmlFor="children" className="block text-xs text-gray-600 dark:text-gray-400 mb-1">
-                Children (2-11)
-              </label>
-              <select
-                id="children"
-                name="children"
-                value={formData.children}
-                onChange={handleChange}
-                className="input-field"
-              >
-                {[0, 1, 2, 3, 4].map(num => (
-                  <option key={num} value={num}>{num}</option>
-                ))}
-              </select>
-            </div>
-
-            {/* Infants */}
-            <div>
-              <label htmlFor="infants" className="block text-xs text-gray-600 dark:text-gray-400 mb-1">
-                Infants (0-2)
-              </label>
-              <select
-                id="infants"
-                name="infants"
-                value={formData.infants}
-                onChange={handleChange}
-                className="input-field"
-              >
-                {[0, 1, 2].map(num => (
-                  <option key={num} value={num}>{num}</option>
-                ))}
-              </select>
-            </div>
-          </div>
-          {errors.passengers && (
-            <p className="mt-2 text-sm text-red-600">{errors.passengers}</p>
-          )}
-        </div>
-
-        {/* Submit Button */}
-        <button
-          type="submit"
-          className="btn-primary w-full text-lg flex items-center justify-center space-x-2"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-          <span>Search Flights</span>
-        </button>
-      </form>
     </div>
   )
 }
